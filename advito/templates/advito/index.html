@@ -1,0 +1,13 @@
+{% extends 'advito/layout.html' %}
+{% block unique_content %}
+    <p>Всем привет! Добро пожаловать в сервис Meschat.</p>
+    {% for user in users %}
+    {% if user.is_authenticated %}
+    <li class="post-set-block">
+               <a href="{% url 'profile' user.user_id %}">
+                   <p>{{ user.user }}</p>
+               </a>
+           </li>
+    {% endif %}
+    {% endfor %}
+{% endblock unique_content %}
